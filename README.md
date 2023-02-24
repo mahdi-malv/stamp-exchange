@@ -26,3 +26,8 @@ chmod +x runAliceJaneTrade.sh
 - [optional] open the project in an IDE (e.g. IntelliJ)
 - Run the `Main.kt`.main and **pass the args** as scanner readLine()
 - Or run `./gradlew run --args "\"1,2,3,4\" \"1,2,4,5\""`
+
+### Run tests
+```bash
+./gradlew test
+```
