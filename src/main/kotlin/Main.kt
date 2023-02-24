@@ -7,6 +7,15 @@ fun main(args: Array<String>) {
     println("{${result.first.joinToString(",")}}, {${result.second.joinToString(",")}}")
 }
 
+/**
+ * ## The class responsible for the actual requirement
+ * Take two inputs and [output] gives the outputs required
+ *
+ * > Usage
+ * ```
+ * val output = StampExchange(arr1, arr2).output()
+ * ```
+ */
 class StampExchange(
     private val janeStamps: Array<Int>,
     private val aliceStamps: Array<Int>
@@ -45,6 +54,9 @@ class StampExchange(
 
 // region utils
 
+/**
+ * Return two array from corresponding inputs
+ */
 private fun scanTwoArrays(): Pair<Array<Int>, Array<Int>> {
     val string1 = readlnOrNull() ?: throw IllegalArgumentException("Pass a valid input")
     val string2 = readlnOrNull() ?: throw IllegalArgumentException("Pass a valid input")
@@ -69,8 +81,20 @@ private fun parseArgs(args: Array<String>): Pair<Array<Int>, Array<Int>>? {
     }
 }
 
+/**
+ * Transforms the input string to an int array
+ * **NOTE**: input must have checked with [isExpectedArray] first
+ */
 private fun String.asExpectedIntArray(): Array<Int> = removeSpace().split(',').map { it.toInt() }.toTypedArray()
+
+/**
+ * Returns true if input extension is matching "1,3,4,5..." (spaces removed first)
+ */
 private fun String.isExpectedArray() = removeSpace().matches("([0-9]+(,[0-9]+)*)+".toRegex())
+
+/**
+ * Removes spaces from input
+ */
 private fun String.removeSpace() = replace(" ", "")
 
 // endregion
